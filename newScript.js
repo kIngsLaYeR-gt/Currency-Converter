@@ -15,7 +15,6 @@ for (let select of choices) {
   }
 
   if (index === 0) {
-    // First select element
     select.addEventListener("change", async (e) => {
       console.log("First select clicked");
       updateFlag(e.target);
@@ -23,8 +22,7 @@ for (let select of choices) {
       def = e.target.value.toLowerCase();
     });
   } else if (index === 1) {
-    // Second select element
-    select.addEventListener("click", async (e) => {
+    select.addEventListener("change", async (e) => {
       console.log("Second select clicked");
       updateFlag(e.target);
       await getData(e.target);
@@ -41,7 +39,6 @@ const setUrl = (element) => {
 const updateFlag = (element) => {
   let currCode = element.value;
   let countryCode = countryList[currCode];
-  // console.log(countryCode)
   let newSrc = "https://flagsapi.com/" + countryCode + "/flat/64.png";
   let image = element.parentElement.querySelector("img");
   image.src = newSrc;
@@ -66,7 +63,5 @@ const getData = async (element) => {
 };
 btn.addEventListener("click", (evt) => {
         evt.preventDefault();
-        let amount = document.querySelector("form input");
-        let amtval = amount.value;
-        result.innerHTML = `Connverted Amount:  ${Math.abs(amtval * 0.043).toFixed(3)}${"AED"}`;
+        result.innerHTML = `PLese Select Both of the currency first`;
 });
